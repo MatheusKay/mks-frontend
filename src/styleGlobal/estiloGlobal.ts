@@ -8,9 +8,21 @@ export const EstiloGlobal = createGlobalStyle`
     font-family: "Montserrat", sans-serif;
   }
 
+  body {
+    position: relative;
+
+    button {
+      cursor: pointer;
+    }
+
+    .is_close {
+      display: none;
+    }
+  }
+
   .container {
     max-width: 938px;
     width: 100%;
-    margin: 0 auto;
+    margin: 120px auto 0;
   }
 `

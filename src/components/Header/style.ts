@@ -31,6 +31,7 @@ export const HeaderCart = styled.div`
   align-items: center;
   background-color: #fff;
   border-radius: 8px;
+  cursor: pointer;
 
   span {
     margin-left: 16px;

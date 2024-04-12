@@ -1,25 +1,28 @@
 import shoppBag from '../../assets/shopping-bag.png'
-import exemplo from '../../assets/iphone-x.png'
 
 import { CardButton, CardCotain, CardInfos } from './style'
 
-const Card = () => {
+type Props = {
+  name: string
+  price: string
+  photo: string
+  description: string
+}
+
+const Card = ({ name, price, photo, description }: Props) => {
   return (
     <CardCotain>
       <div className="padding">
         <div className="img_logo">
-          <img src={exemplo} alt="" />
+          <img src={photo} alt={name} />
         </div>
         <CardInfos>
-          <h2>Beats Headphones</h2>
+          <h2>{name}</h2>
           <span>
-            R$ <p>899</p>
+            R$ <p>{price}</p>
           </span>
         </CardInfos>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-          necessitatibus quo.
-        </p>
+        <p>{description}</p>
       </div>
       <CardButton>
         <img src={shoppBag} alt="Imagem que representa o botão de compra" />
