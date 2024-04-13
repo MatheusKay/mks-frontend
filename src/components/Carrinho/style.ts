@@ -1,6 +1,10 @@
+import { motion } from 'framer-motion'
+
 import styled from 'styled-components'
 
-export const CarrinhoContain = styled.aside`
+import { media } from '../../styleGlobal/estiloGlobal'
+
+export const CarrinhoContain = styled(motion.aside)`
   max-width: 488px;
   width: 100%;
   height: 100%;
@@ -21,6 +25,21 @@ export const CarrinhoContain = styled.aside`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    @media (max-width: ${media.tablet}) {
+      padding: 24px 16px 44px 36px;
+    }
+  }
+
+  .info_product {
+    max-height: 720px;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    @media (max-width: ${media.tablet}) {
+      max-height: none;
+    }
   }
 
   ul {
@@ -28,6 +47,10 @@ export const CarrinhoContain = styled.aside`
       margin-bottom: 24px;
       list-style: none;
     }
+  }
+
+  @media (max-width: ${media.tablet}) {
+    width: 85%;
   }
 `
 
@@ -40,6 +63,13 @@ export const HeaderCarrinho = styled.div`
   h2 {
     width: 184px;
     font-size: 27px;
+  }
+
+  @media (max-width: ${media.tablet}) {
+    button {
+      width: 48px;
+      height: 48px;
+    }
   }
 `
 

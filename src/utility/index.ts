@@ -11,3 +11,13 @@ export const totalPrice = (products: ProductsList[]) => {
     return 0
   }, 0)
 }
+
+export const formataPrice = (price: string) => {
+  if (price) {
+    const priceNew = price.replace(/\.?0*$/, '')
+
+    return Number(priceNew)
+  }
+
+  return 0
+}

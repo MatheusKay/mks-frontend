@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { media } from '../../styleGlobal/estiloGlobal'
 
 export const FooterContain = styled.footer`
   width: 100%;
@@ -9,5 +10,9 @@ export const FooterContain = styled.footer`
   p {
     font-size: 12px;
     text-align: center;
+  }
+
+  @media (max-width: ${media.tablet}) {
+    margin-top: 36px;
   }
 `

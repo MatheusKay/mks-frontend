@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import { media } from '../../styleGlobal/estiloGlobal'
+
 export const CardCotain = styled.section`
   max-width: 216px;
   width: 100%;
@@ -29,6 +31,10 @@ export const CardCotain = styled.section`
       font-weight: 300;
     }
   }
+
+  @media (max-width: ${media.tablet}) {
+    max-width: 251px;
+  }
 `
 
 export const CardInfos = styled.div`
@@ -37,6 +43,7 @@ export const CardInfos = styled.div`
   justify-content: space-between;
 
   h2 {
+    width: 100px;
     font-size: 16px;
     font-weight: 400;
   }

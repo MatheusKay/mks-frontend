@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import { media } from '../../styleGlobal/estiloGlobal'
+
 export const CardContain = styled.div`
   max-width: 400px;
   width: 100%;
@@ -17,29 +19,80 @@ export const CardContain = styled.div`
       margin-left: 24px;
       width: 48px;
     }
+
+    @media (max-width: ${media.tablet}) {
+      flex-direction: column;
+
+      img {
+        margin-left: 0;
+        width: 80px;
+      }
+
+      button {
+        font-size: 20px;
+      }
+    }
+  }
+
+  .info_produto_opcoes {
+    display: flex;
+    align-items: center;
+
+    @media (max-width: ${media.tablet}) {
+      margin-top: 12px;
+    }
   }
 
   .text_qtd {
     font-size: 6px;
+
+    @media (max-width: ${media.tablet}) {
+      display: none;
+    }
   }
 
   .button_contain {
     position: absolute;
-    top: -6px;
-    right: -6px;
+    top: -4px;
+    right: -4px;
+
+    @media (max-width: ${media.tablet}) {
+      top: 6px;
+      right: 6px;
+
+      button {
+        width: 24px;
+        height: 24px;
+      }
+    }
   }
 
   h4 {
+    width: 25%;
     margin-left: 24px;
     margin-right: 9px;
     font-weight: 400;
     color: #2c2c2c;
+
+    @media (max-width: ${media.tablet}) {
+      width: 100%;
+      font-size: 16px;
+      text-align: center;
+    }
   }
 
   span {
     margin-left: 40px;
     font-weight: 700;
     color: #000;
+
+    @media (max-width: ${media.tablet}) {
+      padding: 8px 16px;
+      background-color: #373737;
+      color: #fff;
+      font-size: 16px;
+      border-radius: 6px;
+    }
   }
 `
 
@@ -65,5 +118,14 @@ export const AumentarProduto = styled.div`
   button {
     background-color: transparent;
     border: none;
+  }
+
+  @media (max-width: ${media.tablet}) {
+    margin-top: 0;
+    font-size: 20px;
+
+    input {
+      width: 32px;
+    }
   }
 `

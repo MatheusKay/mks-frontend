@@ -1,5 +1,10 @@
 import { createGlobalStyle } from 'styled-components'
 
+export const media = {
+  descktop: '1024px',
+  tablet: '767px'
+}
+
 export const EstiloGlobal = createGlobalStyle`
   * {
     margin: 0;
@@ -17,6 +22,7 @@ export const EstiloGlobal = createGlobalStyle`
 
     .is_close {
       display: none;
+      opacity: 0;
     }
   }
 
@@ -24,5 +30,10 @@ export const EstiloGlobal = createGlobalStyle`
     max-width: 938px;
     width: 100%;
     margin: 120px auto 0;
+
+    @media (max-width: ${media.tablet}) {
+      width: 67%;
+      margin: 18px auto 0;
+    }
   }
 `

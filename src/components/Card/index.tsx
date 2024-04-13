@@ -4,7 +4,7 @@ import { CardButton, CardCotain, CardInfos } from './style'
 
 type Props = {
   name: string
-  price: string
+  price: number
   photo: string
   description: string
   onClick: () => void

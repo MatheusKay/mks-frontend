@@ -13,7 +13,7 @@ import {
 import { RootReducer } from '../../store'
 import { close, removeCart } from '../../store/reducers/carrinho'
 
-import { totalPrice } from '../../utility/index'
+import { totalPrice, formataPrice } from '../../utility/index'
 
 const Carrinho = () => {
   const { isOpen, itens } = useSelector((state: RootReducer) => state.carrinho)
@@ -23,25 +23,35 @@ const Carrinho = () => {
   const accPrice = totalPrice(itens)
 
   return (
-    <CarrinhoContain className={isOpen === false ? 'is_close' : ''}>
+    <CarrinhoContain
+      initial={{ opacity: 0, x: '-100%', zIndex: -2 }}
+      animate={{
+        opacity: isOpen ? 1 : 0,
+        x: isOpen ? '0%' : '-100%',
+        zIndex: 1
+      }}
+      transition={{ duration: 0.5 }}
+    >
       <div className="carrinho_contain_infos">
         <div>
           <HeaderCarrinho>
             <h2>Carrinho de compras</h2>
             <ButtonClose onClick={() => dispatch(close())} size={'38px'} />
           </HeaderCarrinho>
-          <ul>
-            {itens.map((productCart) => (
-              <li key={productCart.id}>
-                <CardCarrinho
-                  name={productCart.name}
-                  photo={productCart.photo}
-                  price={productCart.price}
-                  onClick={() => dispatch(removeCart(productCart.id))}
-                />
-              </li>
-            ))}
-          </ul>
+          <div className="info_product">
+            <ul>
+              {itens.map((productCart) => (
+                <li key={productCart.id}>
+                  <CardCarrinho
+                    name={productCart.name}
+                    photo={productCart.photo}
+                    price={formataPrice(productCart.price)}
+                    onClick={() => dispatch(removeCart(productCart.id))}
+                  />
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
         <CarrinhoPrice>
           <h3>Total</h3>
