@@ -1,19 +1,17 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
-type Products = {
-  products: [
-    {
-      id: number
-      name: string
-      brand: string
-      description: string
-      photo: string
-      price: string
-      createdAt: string
-      updatedAt: string
-    }
-  ]
+export type Products = {
   count: number
+  products: {
+    id: number
+    name: string
+    brand: string
+    description: string
+    photo: string
+    price: string
+    createdAt: string
+    updatedAt: string
+  }[]
 }
 
 const api = createApi({

@@ -7,9 +7,10 @@ type Props = {
   price: string
   photo: string
   description: string
+  onClick: () => void
 }
 
-const Card = ({ name, price, photo, description }: Props) => {
+const Card = ({ name, price, photo, description, onClick }: Props) => {
   return (
     <CardCotain>
       <div className="padding">
@@ -24,7 +25,7 @@ const Card = ({ name, price, photo, description }: Props) => {
         </CardInfos>
         <p>{description}</p>
       </div>
-      <CardButton>
+      <CardButton onClick={onClick}>
         <img src={shoppBag} alt="Imagem que representa o botão de compra" />
         <span>Comprar</span>
       </CardButton>

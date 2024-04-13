@@ -1,15 +1,20 @@
-import img from '../../assets/apple-watch.png'
-
 import ButtonClose from '../ButtonClose'
 
 import { CardContain, AumentarProduto } from './style'
 
-const CardCarrinho = () => {
+type Props = {
+  name: string
+  photo: string
+  price: string
+  onClick: () => void
+}
+
+const CardCarrinho = ({ name, photo, price, onClick }: Props) => {
   return (
     <CardContain>
       <div className="info_produto">
-        <img src={img} alt="" />
-        <h4>Nome do produto</h4>
+        <img src={photo} alt={name} />
+        <h4>{name}</h4>
         <div>
           <p className="text_qtd">Qtd:</p>
           <AumentarProduto>
@@ -18,9 +23,9 @@ const CardCarrinho = () => {
             <button>+</button>
           </AumentarProduto>
         </div>
-        <span>R$ 899</span>
+        <span>R$ {price}</span>
       </div>
-      <div className="button_contain">
+      <div onClick={onClick} className="button_contain">
         <ButtonClose />
       </div>
     </CardContain>

@@ -3,6 +3,9 @@ import styled from 'styled-components'
 export const CardCotain = styled.section`
   max-width: 216px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
   color: #2c2c2c;
   border-radius: 8px 8px 0 0;
   box-shadow: 0px 2px 8px 0px #00000022;

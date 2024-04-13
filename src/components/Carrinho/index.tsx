@@ -11,12 +11,16 @@ import {
 } from './style'
 
 import { RootReducer } from '../../store'
-import { close } from '../../store/reducers/carrinho'
+import { close, removeCart } from '../../store/reducers/carrinho'
+
+import { totalPrice } from '../../utility/index'
 
 const Carrinho = () => {
-  const { isOpen } = useSelector((state: RootReducer) => state.carrinho)
+  const { isOpen, itens } = useSelector((state: RootReducer) => state.carrinho)
 
   const dispatch = useDispatch()
+
+  const accPrice = totalPrice(itens)
 
   return (
     <CarrinhoContain className={isOpen === false ? 'is_close' : ''}>
@@ -27,23 +31,24 @@ const Carrinho = () => {
             <ButtonClose onClick={() => dispatch(close())} size={'38px'} />
           </HeaderCarrinho>
           <ul>
-            <li>
-              <CardCarrinho />
-            </li>
-            <li>
-              <CardCarrinho />
-            </li>
-            <li>
-              <CardCarrinho />
-            </li>
+            {itens.map((productCart) => (
+              <li key={productCart.id}>
+                <CardCarrinho
+                  name={productCart.name}
+                  photo={productCart.photo}
+                  price={productCart.price}
+                  onClick={() => dispatch(removeCart(productCart.id))}
+                />
+              </li>
+            ))}
           </ul>
         </div>
         <CarrinhoPrice>
           <h3>Total</h3>
-          <span>R$ 798</span>
+          <span>R$ {accPrice}</span>
         </CarrinhoPrice>
       </div>
-      <ButtonBuy>Finalizar Compra</ButtonBuy>
+      <ButtonBuy onClick={() => console.log(itens)}>Finalizar Compra</ButtonBuy>
     </CarrinhoContain>
   )
 }
