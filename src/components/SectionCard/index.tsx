@@ -6,7 +6,11 @@ import { SectionContain } from './style'
 
 import { useGetProductsACSQuery } from '../../services/api'
 
-import { ProductsList, addCart, open } from '../../store/reducers/carrinho'
+import {
+  ProductsListWithAmount,
+  addCart,
+  open
+} from '../../store/reducers/carrinho'
 import { formataPrice } from '../../utility'
 import { RootReducer } from '../../store'
 
@@ -24,7 +28,14 @@ const SectionCard = () => {
 
   const products = response?.products || []
 
-  const addProduct = (item: ProductsList) => {
+  const productsWithAmount: ProductsListWithAmount[] = products.map(
+    (product) => ({
+      ...product,
+      amount: 1
+    })
+  )
+
+  const addProduct = (item: ProductsListWithAmount) => {
     dispatch(addCart(item))
     dispatch(open())
   }
@@ -37,7 +48,7 @@ const SectionCard = () => {
       }}
       className="container"
     >
-      {products?.map((product) => (
+      {productsWithAmount?.map((product) => (
         <Card
           name={product.name}
           description={product.description}

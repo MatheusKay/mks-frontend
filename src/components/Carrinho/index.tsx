@@ -13,7 +13,7 @@ import {
 import { RootReducer } from '../../store'
 import { close, removeCart } from '../../store/reducers/carrinho'
 
-import { totalPrice, formataPrice } from '../../utility/index'
+import { totalPrice } from '../../utility/index'
 
 const Carrinho = () => {
   const { isOpen, itens } = useSelector((state: RootReducer) => state.carrinho)
@@ -45,8 +45,10 @@ const Carrinho = () => {
                   <CardCarrinho
                     name={productCart.name}
                     photo={productCart.photo}
-                    price={formataPrice(productCart.price)}
+                    price={productCart.price}
                     onClick={() => dispatch(removeCart(productCart.id))}
+                    product={productCart}
+                    amount={productCart.amount}
                   />
                 </li>
               ))}

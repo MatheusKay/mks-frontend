@@ -1,15 +1,33 @@
+import { useDispatch } from 'react-redux'
+
 import ButtonClose from '../ButtonClose'
 
 import { CardContain, AumentarProduto } from './style'
+import {
+  ProductsListWithAmount,
+  addAmount,
+  removeAmount
+} from '../../store/reducers/carrinho'
 
 type Props = {
+  product: ProductsListWithAmount
   name: string
   photo: string
-  price: number
+  price: string
+  amount: number
   onClick: () => void
 }
 
-const CardCarrinho = ({ name, photo, price, onClick }: Props) => {
+const CardCarrinho = ({
+  name,
+  photo,
+  price,
+  onClick,
+  product,
+  amount
+}: Props) => {
+  const dispatch = useDispatch()
+
   return (
     <CardContain>
       <div className="info_produto">
@@ -19,9 +37,9 @@ const CardCarrinho = ({ name, photo, price, onClick }: Props) => {
           <div>
             <p className="text_qtd">Qtd:</p>
             <AumentarProduto>
-              <button>-</button>
-              <input type="text" name="" id="" />
-              <button>+</button>
+              <button onClick={() => dispatch(removeAmount(product))}>-</button>
+              <input type="text" value={amount} />
+              <button onClick={() => dispatch(addAmount(product))}>+</button>
             </AumentarProduto>
           </div>
           <span>R$ {price}</span>

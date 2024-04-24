@@ -16,8 +16,8 @@ export const formataPrice = (price: string) => {
   if (price) {
     const priceNew = price.replace(/\.?0*$/, '')
 
-    return Number(priceNew)
+    return priceNew
   }
 
-  return 0
+  return '0'
 }

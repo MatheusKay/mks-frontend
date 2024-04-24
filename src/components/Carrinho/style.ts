@@ -7,11 +7,11 @@ import { media } from '../../styleGlobal/estiloGlobal'
 export const CarrinhoContain = styled(motion.aside)`
   max-width: 488px;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   background-color: #0f52ba;
@@ -32,13 +32,13 @@ export const CarrinhoContain = styled(motion.aside)`
   }
 
   .info_product {
-    max-height: 720px;
+    max-height: 345px;
     height: 100%;
-    overflow-y: scroll;
+    overflow-y: overlay;
     overflow-x: hidden;
 
     @media (max-width: ${media.tablet}) {
-      max-height: none;
+      max-height: 325px;
     }
   }
 
