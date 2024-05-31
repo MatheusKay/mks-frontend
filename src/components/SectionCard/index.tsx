@@ -1,4 +1,7 @@
+import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 import Card from '../Card'
 
@@ -23,6 +26,7 @@ const SectionCard = () => {
   })
 
   const { isOpen } = useSelector((state: RootReducer) => state.carrinho)
+  const [delay, setDelay] = useState(false)
 
   const dispatch = useDispatch()
 
@@ -40,25 +44,39 @@ const SectionCard = () => {
     dispatch(open())
   }
 
+  setTimeout(() => {
+    setDelay(true)
+  }, 5000)
+
   return (
-    <SectionContain
-      initial={{ position: 'relative', zIndex: 2 }}
-      animate={{
-        zIndex: isOpen ? -1 : 2
-      }}
-      className="container"
-    >
-      {productsWithAmount?.map((product) => (
-        <Card
-          name={product.name}
-          description={product.description}
-          photo={product.photo}
-          price={formataPrice(product.price)}
-          key={product.id}
-          onClick={() => addProduct(product)}
-        />
-      ))}
-    </SectionContain>
+    <>
+      {delay == false ? (
+        <SectionContain className="container">
+          {products.map((item) => (
+            <Skeleton className="skeleton" key={item.id} />
+          ))}
+        </SectionContain>
+      ) : (
+        <SectionContain
+          initial={{ position: 'relative', zIndex: 2 }}
+          animate={{
+            zIndex: isOpen ? -1 : 2
+          }}
+          className="container"
+        >
+          {productsWithAmount?.map((product) => (
+            <Card
+              name={product.name}
+              description={product.description}
+              photo={product.photo}
+              price={formataPrice(product.price)}
+              key={product.id}
+              onClick={() => addProduct(product)}
+            />
+          ))}
+        </SectionContain>
+      )}
+    </>
   )
 }
 

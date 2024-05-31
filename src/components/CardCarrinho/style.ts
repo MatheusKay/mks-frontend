@@ -5,7 +5,7 @@ import { media } from '../../styleGlobal/estiloGlobal'
 export const CardContain = styled.div`
   max-width: 400px;
   width: 100%;
-  padding: 16px 0;
+  padding: 16px;
   position: relative;
   font-size: 14px;
   border-radius: 8px;
@@ -16,7 +16,6 @@ export const CardContain = styled.div`
     align-items: center;
 
     > img {
-      margin-left: 24px;
       width: 48px;
     }
 
@@ -24,7 +23,6 @@ export const CardContain = styled.div`
       flex-direction: column;
 
       img {
-        margin-left: 0;
         width: 80px;
       }
 
@@ -53,8 +51,8 @@ export const CardContain = styled.div`
 
   .button_contain {
     position: absolute;
-    top: -4px;
-    right: -4px;
+    top: 2px;
+    right: 4px;
 
     @media (max-width: ${media.tablet}) {
       top: 6px;

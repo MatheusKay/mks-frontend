@@ -4,16 +4,27 @@ import styled from 'styled-components'
 
 import { media } from '../../styleGlobal/estiloGlobal'
 
-export const CarrinhoContain = styled(motion.aside)`
-  max-width: 488px;
+export const Contain = styled(motion.div)`
   width: 100%;
+  height: 100%;
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+
+  .overlay {
+    width: 70%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+`
+
+export const CarrinhoContain = styled.aside`
+  width: 30%;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  position: fixed;
-  top: 0;
-  right: 0;
   background-color: #0f52ba;
   color: #fff;
   font-weight: 700;

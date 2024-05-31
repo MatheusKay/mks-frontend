@@ -14,4 +14,10 @@ export const SectionContain = styled(motion.main)`
   @media (max-width: ${media.tablet}) {
     grid-template-columns: 1fr;
   }
+
+  .skeleton {
+    max-width: 216px;
+    min-height: 342px;
+    width: 100%;
+  }
 `

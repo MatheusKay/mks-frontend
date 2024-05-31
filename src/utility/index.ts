@@ -14,7 +14,7 @@ export const totalPrice = (products: ProductsList[]) => {
 
 export const formataPrice = (price: string) => {
   if (price) {
-    const priceNew = price.replace(/\.?0*$/, '')
+    const priceNew = Number(price).toLocaleString()
 
     return priceNew
   }

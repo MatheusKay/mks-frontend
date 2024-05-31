@@ -8,6 +8,7 @@ import {
   addAmount,
   removeAmount
 } from '../../store/reducers/carrinho'
+import { formataPrice } from '../../utility'
 
 type Props = {
   product: ProductsListWithAmount
@@ -42,7 +43,7 @@ const CardCarrinho = ({
               <button onClick={() => dispatch(addAmount(product))}>+</button>
             </AumentarProduto>
           </div>
-          <span>R$ {price}</span>
+          <span>R$ {formataPrice(price)}</span>
         </div>
       </div>
       <div onClick={onClick} className="button_contain">
