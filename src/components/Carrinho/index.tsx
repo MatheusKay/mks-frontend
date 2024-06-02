@@ -61,7 +61,7 @@ const Carrinho = () => {
             </div>
           </div>
           <CarrinhoPrice>
-            <h3>Total</h3>
+            <h3>Total:</h3>
             <span>R$ {accPrice}</span>
           </CarrinhoPrice>
         </div>

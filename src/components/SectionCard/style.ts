@@ -20,4 +20,8 @@ export const SectionContain = styled(motion.main)`
     min-height: 342px;
     width: 100%;
   }
+
+  @media (min-width: ${media.tablet}) and (max-width: ${media.descktop}) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 `

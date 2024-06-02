@@ -92,6 +92,10 @@ export const CardContain = styled.div`
       border-radius: 6px;
     }
   }
+
+  @media (max-width: ${media.tablet}) {
+    width: 90%;
+  }
 `
 
 export const AumentarProduto = styled.div`

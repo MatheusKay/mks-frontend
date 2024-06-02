@@ -16,6 +16,10 @@ export const Contain = styled(motion.div)`
     width: 70%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
+
+    @media (min-width: ${media.tablet}) and (max-width: ${media.descktop}) {
+      width: 50%;
+    }
   }
 `
 
@@ -38,7 +42,7 @@ export const CarrinhoContain = styled.aside`
     justify-content: space-between;
 
     @media (max-width: ${media.tablet}) {
-      padding: 24px 16px 44px 36px;
+      padding: 24px;
     }
   }
 
@@ -63,6 +67,10 @@ export const CarrinhoContain = styled.aside`
   @media (max-width: ${media.tablet}) {
     width: 85%;
   }
+
+  @media (min-width: ${media.tablet}) and (max-width: ${media.descktop}) {
+    width: 50%;
+  }
 `
 
 export const HeaderCarrinho = styled.div`
@@ -78,8 +86,8 @@ export const HeaderCarrinho = styled.div`
 
   @media (max-width: ${media.tablet}) {
     button {
-      width: 48px;
-      height: 48px;
+      width: 45px;
+      height: 45px;
     }
   }
 `
@@ -88,6 +96,13 @@ export const CarrinhoPrice = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media (max-width: ${media.tablet}) {
+    h3,
+    span {
+      font-size: 28px;
+    }
+  }
 `
 
 export const ButtonBuy = styled.button`
@@ -99,4 +114,12 @@ export const ButtonBuy = styled.button`
   color: #fff;
   font-weight: 700;
   font-size: 28px;
+
+  @media (max-width: ${media.tablet}) {
+    font-size: 20px;
+  }
+
+  @media (min-width: ${media.tablet}) and (max-width: ${media.descktop}) {
+    max-width: unset;
+  }
 `

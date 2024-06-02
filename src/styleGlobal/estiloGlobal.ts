@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 
 export const media = {
-  descktop: '1024px',
+  descktop: '1023px',
   tablet: '767px'
 }
 
@@ -34,6 +34,11 @@ export const EstiloGlobal = createGlobalStyle`
     @media (max-width: ${media.tablet}) {
       width: 67%;
       margin: 18px auto 0;
+    }
+
+    @media (min-width: ${media.tablet}) and (max-width: ${media.descktop}) {
+      max-width: unset;
+      width: 90%;
     }
   }
 `
