@@ -6,7 +6,7 @@ import { store } from '../../store'
 import Footer from '../Footer'
 
 describe('Footer', () => {
-  it('', () => {
+  it('should render the footer and text inside the container', () => {
     render(
       <Provider store={store}>
         <Footer />

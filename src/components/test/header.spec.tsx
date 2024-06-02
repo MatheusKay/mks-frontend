@@ -8,53 +8,52 @@ import Header from '../Header'
 import Carrinho from '../Carrinho'
 
 describe('HeaderComponent', () => {
-  it('deve renderizar a logo no header e o botao do carrinho com a imagem', () => {
+  it('should render the logo in the header and the cart button with the image', () => {
     render(
       <Provider store={store}>
         <Header />
       </Provider>
     )
 
-    //Captura os Elementos do Header para saber se ele renderizou corretamente.
+    //Checks each element to see if they appeared correctly and if everything is ok.
     const titleH1 = screen.getByText('MKS')
     const titleP = screen.getByText('Sistemas')
     const imageCart = screen.getByAltText(
       'Imagem que representa o carrinho do site'
     )
 
-    //Verifica cada elemento para saber se eles apareceram corretamente e se esta tudo ok.
-    expect(titleH1).toBeInTheDocument()
+    //Checks each element to see if they appeared correctly and if everything is ok.    expect(titleH1).toBeInTheDocument()
     expect(titleP).toBeInTheDocument()
     expect(imageCart).toBeInTheDocument()
   })
 
-  it('deve aparecer o carrinho quando clicar no botao do carrinho', () => {
+  it('should the cart appears when you click on the cart button ', () => {
     render(
       <Provider store={store}>
         <Header />
         <Carrinho />
       </Provider>
     )
-    //Captura o elemento do butao para abri o carrinho.
+    //Capture the button element to open the cart.
     const buttonCart = screen.getByTestId('button-cart')
 
-    //Execulta o click para abrir o carrinho.
+    //Click to open the cart.
     fireEvent.click(buttonCart)
 
-    //Captura o component do carrinho e algun elemento para verificar se o carrinho abriu.
+    //Captures the cart component and some element to check if the cart has opened.
     const cartOpen = screen.getByTestId('cart')
     const containCart = screen.getByText('Carrinho de compras')
 
-    //Verifica se ele abriu corretamente.
+    //Check if it opened correctly.
     expect(cartOpen).toContainElement(containCart)
 
-    //Captura o botao para fechar o carrinho.
+    //Capture the button to close the cart.
     const closeCart = screen.getByTestId('close-cart')
 
-    //Executa o click para que o carrinho feche.
+    //Click to close the cart.
     fireEvent.click(closeCart)
 
-    //Verifica se o carrinho ainda estra aparecendo ou se foi realmente fechado.
+    //Check if the cart is still appearing or if it has actually been closed.
     expect(cartOpen).toBeInTheDocument()
   })
 })

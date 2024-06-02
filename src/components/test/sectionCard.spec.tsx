@@ -8,30 +8,30 @@ import SectionCard from '../SectionCard'
 import Carrinho from '../Carrinho'
 
 describe('SectionCards', () => {
-  it('deve renderizar a seção primeiro com o skeleton e depois com os produtos na tela.', async () => {
+  it('should render the section first with the skeleton and then with the products on the screen.', async () => {
     render(
       <Provider store={store}>
         <SectionCard />
       </Provider>
     )
 
-    //Captura a seção com o skeleton dentro para testa-lo.
+    //Capture the section with the skeleton inside to test it.
     const containerSkeleton = screen.getByTestId('section-skeleton')
 
-    //Verifica se a seção esta sendo renderizada corretamente na DOM
+    //Checks if the section is being rendered correctly in the DOM
     expect(containerSkeleton).toBeInTheDocument()
 
-    //Simula o delay coloca na seção para mostras o skeleton e depois os produtos
+    //Simulate the delay and place it in the section to show the skeleton and then the products
     setTimeout(() => {
-      //Captura a seção com os produtos dentro dentro para testa-lo.
+      //Capture the section with the products inside to test it.
       const containerProducts = screen.getByTestId('section-cards')
 
-      //Verifica se a seção esta sendo renderizada corretamente com os produtos na DOM
+      //Checks if the section is being rendered correctly with the products in the DOM
       expect(containerProducts).toBeInTheDocument()
     }, 5000)
   })
 
-  it('deve renderizar os cards com seus elementos corretamente', () => {
+  it('should render cards with their elements correctly', () => {
     render(
       <Provider store={store}>
         <Carrinho />
@@ -61,7 +61,7 @@ describe('SectionCards', () => {
     }, 5000)
   })
 
-  it('deve adicionar o produto ao carrinho quando o botao for clicado', () => {
+  it('should add the product to the cart when the button is clicked', () => {
     render(
       <Provider store={store}>
         <Carrinho />
@@ -80,14 +80,14 @@ describe('SectionCards', () => {
 
         fireEvent.click(buttonCard)
 
-        //Captura o component do carrinho e algun elemento para verificar se o carrinho abriu.
+        //Captures the cart component and some element to check if the cart has opened.
         const cartOpen = screen.getByTestId('cart')
         const containCart = screen.getByText('Carrinho de compras')
 
-        //Verifica se ele abriu corretamente.
+        //Check if it opened correctly.
         expect(cartOpen).toContainElement(containCart)
 
-        //Verifica se o card do produto foi realmente adicionado ao carrinho e confere se tem os elementos no container do card
+        //Checks if the product card was actually added to the cart and checks if it has the elements in the card container
         const cardCart = cartOpen.querySelector('[data-testid="card-cart"]')
 
         const cardImage = cardCart?.querySelector('img')
