@@ -18,7 +18,7 @@ const Header = () => {
         <h1>MKS</h1>
         <p>Sistemas</p>
       </HeaderLogo>
-      <HeaderCart onClick={() => dispatch(open())}>
+      <HeaderCart data-testid="button-cart" onClick={() => dispatch(open())}>
         <img src={cart} alt="Imagem que representa o carrinho do site" />
         <span>{itens.length}</span>
       </HeaderCart>

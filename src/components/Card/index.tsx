@@ -7,25 +7,33 @@ type Props = {
   price: string
   photo: string
   description: string
+  dataTest: string
   onClick: () => void
 }
 
-const Card = ({ name, price, photo, description, onClick }: Props) => {
+const Card = ({
+  name,
+  price,
+  photo,
+  description,
+  onClick,
+  dataTest
+}: Props) => {
   return (
-    <CardCotain>
+    <CardCotain data-testid={dataTest}>
       <div className="padding">
         <div className="img_logo">
-          <img src={photo} alt={name} />
+          <img data-testid="product-image" src={photo} alt={name} />
         </div>
         <CardInfos>
-          <h2>{name}</h2>
+          <h2 data-testid="product-name">{name}</h2>
           <span>
-            R$ <p>{price}</p>
+            R$ <p data-testid="product-price">{price}</p>
           </span>
         </CardInfos>
-        <p>{description}</p>
+        <p data-testid="product-description">{description}</p>
       </div>
-      <CardButton onClick={onClick}>
+      <CardButton data-testid="button-card" onClick={onClick}>
         <img src={shoppBag} alt="Imagem que representa o botão de compra" />
         <span>Comprar</span>
       </CardButton>

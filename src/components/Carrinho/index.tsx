@@ -32,6 +32,7 @@ const Carrinho = () => {
         zIndex: 1
       }}
       transition={{ duration: 0.5 }}
+      data-testid="cart"
     >
       <div onClick={() => dispatch(close())} className="overlay"></div>
       <CarrinhoContain>
@@ -52,6 +53,7 @@ const Carrinho = () => {
                       onClick={() => dispatch(removeCart(productCart.id))}
                       product={productCart}
                       amount={productCart.amount}
+                      dataTestid="card-cart"
                     />
                   </li>
                 ))}

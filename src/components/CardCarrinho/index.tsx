@@ -16,6 +16,7 @@ type Props = {
   photo: string
   price: string
   amount: number
+  dataTestid: string
   onClick: () => void
 }
 
@@ -25,12 +26,13 @@ const CardCarrinho = ({
   price,
   onClick,
   product,
-  amount
+  amount,
+  dataTestid
 }: Props) => {
   const dispatch = useDispatch()
 
   return (
-    <CardContain>
+    <CardContain data-testid={dataTestid}>
       <div className="info_produto">
         <img src={photo} alt={name} />
         <h4>{name}</h4>

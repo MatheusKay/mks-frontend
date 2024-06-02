@@ -9,7 +9,7 @@ export type Props = {
 
 const ButtonClose = ({ size = '', onClick }: Props) => {
   return (
-    <CloseContain onClick={onClick} size={size}>
+    <CloseContain data-testid="close-cart" onClick={onClick} size={size}>
       <img
         src={closeCard}
         alt="Imagem que representa o botão para fechar o carrinho"

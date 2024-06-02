@@ -51,7 +51,7 @@ const SectionCard = () => {
   return (
     <>
       {delay == false ? (
-        <SectionContain className="container">
+        <SectionContain className="container" data-testid="section-skeleton">
           {products.map((item) => (
             <Skeleton className="skeleton" key={item.id} />
           ))}
@@ -63,6 +63,7 @@ const SectionCard = () => {
             zIndex: isOpen ? -1 : 2
           }}
           className="container"
+          data-testid="section-cards"
         >
           {productsWithAmount?.map((product) => (
             <Card
@@ -71,6 +72,7 @@ const SectionCard = () => {
               photo={product.photo}
               price={formataPrice(product.price)}
               key={product.id}
+              dataTest="card-product"
               onClick={() => addProduct(product)}
             />
           ))}
