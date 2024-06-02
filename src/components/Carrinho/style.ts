@@ -25,7 +25,7 @@ export const Contain = styled(motion.div)`
 
 export const CarrinhoContain = styled.aside`
   width: 30%;
-  height: 100vh;
+  height: 1005;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
